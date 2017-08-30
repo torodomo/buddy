@@ -1,0 +1,18 @@
+/* general styling */
+.error{
+  color: red;
+}
+/* dashboard styling */
+thead{
+  background-color: #CCDEE3;
+}
+tr:nth-child(even) {
+  background: #A0BDC6;
+}
+
+td{
+  width: 20%;
+}
+table{
+  margin-bottom: 25px;
+}

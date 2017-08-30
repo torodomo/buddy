@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Login and Registration</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'LogReg/css/style.css' %}" media="screen" title="no title" charset="utf-8">
+</head>
+
+<body>
+  <div id="flash_messages">
+    {% if messages %} {% for message in messages %}
+    <p class="error">{{message}}</p>
+    {% endfor %} {% endif %}
+  </div>
+  <h1 class="header">Welcome!</h1>
+  <div class="regi">
+    <h2>Registration</h2>
+    <form action="{% url 'logreg:register' %}" method="post">
+      {% csrf_token %}
+      <div class="form">
+        <label for="name">Name:</label>
+        <input type="text" name="name" placeholder="Name">
+      </div>
+      <div class="form">
+        <label for="username">Username:</label>
+        <input type="text" name="username" placeholder="Username">
+      </div>
+      <div class="form">
+        <label for="password">Password:</label>
+        <input type="password" name="password">
+        <p><span>*password should be at least 8 characters</span></p>
+      </div>
+      <div class="form">
+        <label for="password_confirmation">Confirm Password:</label>
+        <input type="password" name="password_confirmation">
+      </div>
+      <input class="btn" name='attempt' type="submit" value='register'>
+
+    </form>
+  </div>
+  <div class="login">
+    <h2>Login</h2>
+    <form action="{% url 'logreg:login' %}" method="post">
+      {% csrf_token %}
+      <div class="form">
+        <label for="username">Username:</label>
+        <input type="text" name="username">
+      </div>
+      <div class="form">
+        <label for="password">Password:</label>
+        <input type="password" name="password">
+      </div>
+      <input class="btn" name='attempt' type="submit" value='login'>
+    </form>
+  </div>
+</body>
+
+</html>
